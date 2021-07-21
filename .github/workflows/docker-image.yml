@@ -19,6 +19,8 @@ jobs:
 
     - name: Build the Docker image
       run: |
+        echo "qwe"
+        docker -v
         echo ${{secrets.DOCKER_USER}}
         docker build . --file Dockerfile --tag ${{secrets.DOCKER_USER}}/php7.4:latest
       

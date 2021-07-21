@@ -14,14 +14,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: "test"
+      shell: bash
+      run: echo ${{secrets.DOCKER_USER}}
     - name: docker login
       run: docker login -u ${{secrets.DOCKER_USER}} -p ${{secrets.DOCKER_PASSWORD}}
 
     - name: Build the Docker image
       run: |
-        echo "qwe"
-        docker -v
-        echo ${{secrets.DOCKER_USER}}
         docker build . --file Dockerfile --tag ${{secrets.DOCKER_USER}}/php7.4:latest
       
     - name: Docker Push

@@ -19,9 +19,9 @@ jobs:
       run: echo ${{secrets.DOCKER_USER}}
     - name: docker login
       env:
-        DOCKER_USER: ${{secrets.DOCKER_USER}}
-        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
-      run: sudo docker login -u "$SUPER_SECRET" -p "$SUPER_SECRET"
+        DOCKER_USER: ${{ secrets.DOCKER_USER }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      run: sudo docker login -u {{ secrets.DOCKER_USER }} -p {{ secrets.DOCKER_PASSWORD }}
 
     - name: Build the Docker image
       run: |
